@@ -1,0 +1,145 @@
+/**
+ * Project Automator Engine - Professional IDE Stylesheet
+ * Enterprise Grade Quality
+ */
+
+/* 1. Base Variables & Smooth Scrolling */
+:root {
+    --zinc-950: #09090b;
+    --zinc-900: #18181b;
+    --zinc-800: #27272a;
+    --zinc-700: #3f3f46;
+    --indigo-500: #6366f1;
+    --indigo-600: #4f46e5;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--zinc-700) transparent;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 2. Custom Scrollbars (Webkit) */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--zinc-800);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--zinc-700);
+}
+
+/* 3. CodeMirror 6 Custom Wrapper */
+.cm-editor {
+    height: 100% !important;
+    background-color: var(--zinc-950) !important;
+    outline: none !important;
+}
+
+.cm-scroller {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+    line-height: 1.6 !important;
+}
+
+.cm-gutters {
+    background-color: var(--zinc-950) !important;
+    border-right: 1px solid var(--zinc-900) !important;
+    color: var(--zinc-700) !important;
+}
+
+/* 4. File Tree Interactions */
+.file-tree-item {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 2px solid transparent;
+    user-select: none;
+}
+
+.file-tree-item:hover {
+    background-color: rgba(63, 63, 70, 0.3);
+    color: #fff;
+}
+
+.file-tree-item.active {
+    background-color: rgba(79, 70, 229, 0.1);
+    color: var(--indigo-500);
+    border-left: 2px solid var(--indigo-500);
+}
+
+/* 5. Execution Log Terminal */
+#engineLogs {
+    background-image: radial-gradient(circle at 2px 2px, var(--zinc-800) 1px, transparent 0);
+    background-size: 24px 24px;
+    scroll-behavior: smooth;
+}
+
+.log-entry {
+    border-bottom: 1px solid rgba(39, 39, 42, 0.5);
+    padding: 4px 0;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* 6. GitHub UI Components */
+#btnPush {
+    box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.3);
+}
+
+#btnPush:active {
+    transform: scale(0.95);
+}
+
+.branch-badge {
+    background: linear-gradient(135deg, var(--zinc-800), var(--zinc-900));
+    border: 1px solid var(--zinc-700);
+}
+
+/* 7. Modal & Overlays */
+.glass-panel {
+    background: rgba(24, 24, 27, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--zinc-800);
+}
+
+/* 8. UI State Indicators */
+.saving-pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* 9. Layout Fixes */
+header {
+    backdrop-filter: blur(8px);
+    z-index: 40;
+}
+
+#editorTabs {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+#editorTabs::-webkit-scrollbar {
+    display: none; /* Hide tab scrollbar for cleaner look */
+}
